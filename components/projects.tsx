@@ -2,11 +2,13 @@
 
 import Image from "next/image";
 import { motion } from "motion/react";
+import Link from "next/link";
 
 type Project = {
   title: string;
   src: string;
   href: string;
+  description: string;
 };
 
 const Projects = () => {
@@ -15,21 +17,29 @@ const Projects = () => {
       title: "Project Atlas",
       src: "https://images.unsplash.com/photo-1717996563514-e3519f9ef9f7?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1470",
       href: "#",
+      description:
+        "A mockup of a portfolio website template that showcases your skills, minimal and smooth micro interactions, perfect for developers and designers.",
     },
     {
       title: "Neon Dashboard",
       src: "https://plus.unsplash.com/premium_photo-1683836722608-60ab4d1b58e5?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1412",
       href: "#",
+      description:
+        "A mockup of a portfolio website template that showcases your skills, minimal and smooth micro interactions, perfect for developers and designers.",
     },
     {
       title: "Echo Notes",
       src: "https://images.unsplash.com/photo-1628296499994-70face79ab36?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1373",
       href: "#",
+      description:
+        "A mockup of a portfolio website template that showcases your skills, minimal and smooth micro interactions, perfect for developers and designers.",
     },
     {
       title: "Pulse Tracker",
       src: "https://images.unsplash.com/photo-1759646848980-22662fcabafb?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1460",
       href: "#",
+      description:
+        "A mockup of a portfolio website template that showcases your skills, minimal and smooth micro interactions, perfect for developers and designers.",
     },
   ];
 
@@ -45,23 +55,35 @@ const Projects = () => {
             initial={{
               opacity: 0,
               filter: "blur(10px)",
+              y: 10,
             }}
             whileInView={{
               opacity: 1,
               filter: "blur(0px)",
+              y: 0,
             }}
             transition={{
               duration: 0.3,
               delay: idx * 0.1,
+              ease: "easeInOut",
             }}
+            className="group relative mb-4"
           >
-            <Image
-              src={project.src}
-              alt={project.title}
-              height={300}
-              width={300}
-              className="h-72 w-full rounded-xl object-cover"
-            />
+            <Link href={project.href} className="cursor-pointer">
+              <Image
+                src={project.src}
+                alt={project.title}
+                height={300}
+                width={300}
+                className="h-72 w-full rounded-xl object-cover transition duration-200 group-hover:scale-[1.02]"
+              />
+              <h2 className="mt-2 font-medium tracking-tight text-neutral-500 dark:text-neutral-400">
+                {project.title}
+              </h2>
+              <div className="mt-2 max-w-sm text-sm text-neutral-500 dark:text-neutral-400">
+                {project.description}
+              </div>
+            </Link>
           </motion.div>
         ))}
       </div>
