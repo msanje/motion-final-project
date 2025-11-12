@@ -1,6 +1,3 @@
-import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import "../../app/globals.css";
 import Container from "@/components/Container";
 
 export default function RootLayout({
