@@ -1,5 +1,6 @@
 @import "tailwindcss";
 @import "tw-animate-css";
+/* @import "tailwindcss/typography"; */
 
 @custom-variant dark (&:is(.dark *));
 
@@ -15,5 +16,5 @@
 
 .dark {
   --color-primary: var(--color-neutral-100);
-  --color-primary: var(--color-neutral-400);
+  --color-secondary: var(--color-neutral-400);
 }
