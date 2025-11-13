@@ -42,7 +42,7 @@ export default async function SingleBlogsPage({
     <div className="flex items-start justify-start">
       <Container className="min-h-[200vh] p-4 md:pt-20 md:pb-10">
         {/* <MDXRemote {...mdxSource} /> */}
-        <div className="prose">
+        <div className="prose mx-auto">
           {/* <CliendMdx source={mdxSource} /> */}
           {content}
         </div>
