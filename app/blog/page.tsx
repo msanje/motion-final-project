@@ -1,7 +1,7 @@
 import Container from "@/components/Container";
 import { getBlogs } from "@/lib/server/blogs";
 import type { Metadata } from "next";
-import Link from "next/link";
+import { Link } from "next-view-transitions";
 
 export const metadata: Metadata = {
   title: "All blogs - Sanjay Achar",
@@ -30,7 +30,7 @@ export default async function BlogsPage() {
         <div className="flex flex-col gap-4 py-10">
           {allBlogs.map((blog, idx) => (
             <Link
-              className="no-underline"
+              className="cursor-pointer no-underline"
               key={idx}
               href={`/blog/${blog.slug}`}
             >
