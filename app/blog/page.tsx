@@ -1,12 +1,20 @@
 import Container from "@/components/Container";
+import { getBlogs } from "@/lib/server/blogs";
 import type { Metadata } from "next";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "All blogs - Sanjay Achar",
   description: "All blogs",
 };
 
-export default function BlogsPage() {
+export default async function BlogsPage() {
+  const allBlogs = await getBlogs();
+
+  const truncate = (str: string, length: number) => {
+    return str.length > length ? str.substring(0, length) + "..." : str;
+  };
+
   return (
     <div className="flex items-start justify-start">
       <Container className="min-h-[200vh] p-4 md:pt-20 md:pb-10">
@@ -18,6 +26,33 @@ export default function BlogsPage() {
           efficient systems. I&apos;m currently working as a software engineer
           at Google.
         </p>
+
+        <div className="flex flex-col gap-4 py-10">
+          {allBlogs.map((blog, idx) => (
+            <Link
+              className="no-underline"
+              key={idx}
+              href={`/blog/${blog.slug}`}
+            >
+              <div className="flex items-center justify-between">
+                <h2 className="text-primary text-base font-bold tracking-tight">
+                  {blog.title}
+                </h2>
+                <p className="text-secondary text-sm md:text-sm">
+                  {new Date(blog.date || "").toLocaleDateString("en-us", {
+                    weekday: "long",
+                    year: "numeric",
+                    month: "short",
+                    day: "numeric",
+                  })}
+                </p>
+              </div>
+              <div className="text-secondary max-w-lg pt-2 text-sm md:text-sm">
+                {truncate(blog.description || "", 150)}
+              </div>
+            </Link>
+          ))}
+        </div>
       </Container>
     </div>
   );
