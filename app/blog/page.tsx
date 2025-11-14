@@ -1,5 +1,6 @@
 import Container from "@/components/Container";
 import { getBlogs } from "@/lib/server/blogs";
+import { truncate } from "@/lib/utils";
 import type { Metadata } from "next";
 import { Link } from "next-view-transitions";
 
@@ -10,10 +11,6 @@ export const metadata: Metadata = {
 
 export default async function BlogsPage() {
   const allBlogs = await getBlogs();
-
-  const truncate = (str: string, length: number) => {
-    return str.length > length ? str.substring(0, length) + "..." : str;
-  };
 
   return (
     <div className="flex items-start justify-start">

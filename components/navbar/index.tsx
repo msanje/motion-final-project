@@ -57,13 +57,15 @@ const Navbar = () => {
         }}
         className="fixed inset-x-0 top-0 z-50 mx-auto flex max-w-4xl items-center justify-between rounded-full bg-white px-3 py-2 dark:bg-neutral-900"
       >
-        <Image
-          className="h-12 w-12 rounded-full"
-          src={"/avatar.webp"}
-          height={100}
-          width={100}
-          alt="avatar"
-        />
+        <Link href={"/"}>
+          <Image
+            className="h-12 w-12 rounded-full"
+            src={"/avatar.webp"}
+            height={100}
+            width={100}
+            alt="avatar"
+          />
+        </Link>
         <div className="flex items-center">
           {navItems.map((item, idx) => (
             <Link
