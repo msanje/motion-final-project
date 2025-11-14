@@ -9,6 +9,11 @@ type FrontMatter = {
   date: string;
 };
 
+type Blog = {
+  conent: "";
+  frontmatter: FrontMatter;
+};
+
 export const getSingleBlog = async (slug: string) => {
   try {
     const singleBlog = await fs.readFile(
@@ -16,7 +21,7 @@ export const getSingleBlog = async (slug: string) => {
       "utf-8",
     );
 
-    const blog = await compileMDX<{ title: string }>({
+    const blog = await compileMDX({
       source: singleBlog,
       options: { parseFrontmatter: true },
     });
@@ -46,7 +51,7 @@ export const getBlogs = async () => {
   return allBlogs;
 };
 
-const getBlogFrontMatterBySlug = async (slug: string) => {
+export const getBlogFrontMatterBySlug = async (slug: string) => {
   try {
     const singleBlog = await fs.readFile(
       path.join(process.cwd(), "app", "data", slug, "page.mdx"),

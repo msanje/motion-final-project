@@ -1,6 +1,30 @@
 import Container from "@/components/Container";
 import { redirect } from "next/navigation";
-import { getSingleBlog } from "@/lib/server/blogs";
+import { getBlogFrontMatterBySlug, getSingleBlog } from "@/lib/server/blogs";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{
+    slug: string;
+  }>;
+}) {
+  const resolvedParams = await params;
+  const { slug } = resolvedParams;
+
+  const frontmatter = await getBlogFrontMatterBySlug(slug);
+
+  if (!frontmatter) {
+    return {
+      title: "Blog not found",
+    };
+  }
+
+  return {
+    title: frontmatter.title + " by Sanjay Achar",
+    description: frontmatter.description,
+  };
+}
 
 export default async function SingleBlogsPage({
   params,
