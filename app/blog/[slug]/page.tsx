@@ -4,9 +4,8 @@ import { promises as fs } from "fs";
 import path from "path";
 import { serialize } from "next-mdx-remote/serialize";
 import CliendMdx from "@/components/ClientMdx";
-import { compileMDX } from "next-mdx-remote/rsc";
-import { getSingleBlog } from "@/lib/server/blogs";
 import { redirect } from "next/navigation";
+import { getSingleBlog } from "@/lib/server/blogs";
 
 export default async function SingleBlogsPage({
   params,
@@ -23,20 +22,20 @@ export default async function SingleBlogsPage({
   //   "utf-8",
   // );
 
-  console.log("slug: ", slug);
+  // console.log("slug: ", slug);
 
-  const singleBlog = await getSingleBlog(slug);
+  const blog = await getSingleBlog(slug);
 
-  if (!singleBlog) {
+  if (!blog) {
     redirect("/blog");
   }
 
-  const mdxSource = await serialize(singleBlog);
+  const { content, frontmatter } = blog;
 
-  const { content, frontmatter } = await compileMDX<{ title: string }>({
-    source: singleBlog,
-    options: { parseFrontmatter: true },
-  });
+  console.log("frontmatter: ", frontmatter);
+  console.log("frontmatter.title: ", frontmatter.title);
+
+  // const mdxSource = await serialize(blog);
 
   return (
     <div className="flex items-start justify-start">

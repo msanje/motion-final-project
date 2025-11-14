@@ -1,5 +1,6 @@
 import { promises as fs } from "fs";
 import path from "path";
+import { compileMDX } from "next-mdx-remote/rsc";
 
 export const getSingleBlog = async (slug: string) => {
   try {
@@ -8,7 +9,12 @@ export const getSingleBlog = async (slug: string) => {
       "utf-8",
     );
 
-    return singleBlog;
+    const blog = await compileMDX<{ title: string }>({
+      source: singleBlog,
+      options: { parseFrontmatter: true },
+    });
+
+    return blog;
   } catch (error) {
     console.log("File not found for slug: ", slug);
     return null;
