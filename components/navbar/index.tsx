@@ -3,7 +3,12 @@
 import Image from "next/image";
 import Container from "../Container";
 import Link from "next/link";
-import { motion, useMotionValueEvent, useScroll } from "motion/react";
+import {
+  motion,
+  useMotionValueEvent,
+  useScroll,
+  useTransform,
+} from "motion/react";
 import { useState } from "react";
 
 const Navbar = () => {
@@ -30,8 +35,10 @@ const Navbar = () => {
   const { scrollY } = useScroll();
   const [scrolled, setScrolled] = useState<boolean>(false);
 
+  const y = useTransform(scrollY, [0, 100], [0, 10]);
+  const width = useTransform(scrollY, [0, 100], ["80%", "50%"]);
+
   useMotionValueEvent(scrollY, "change", (latest) => {
-    // console.log("scrollY: ", latest);
     if (latest > 20) {
       setScrolled(true);
     } else {
@@ -42,14 +49,10 @@ const Navbar = () => {
   return (
     <Container>
       <motion.nav
-        // style={{
-        //   boxShadow: scrolled ? "var(--shadow-ace)" : "none",
-        //   width: scrolled ? "40%" : "100%",
-        // }}
-        animate={{
+        style={{
           boxShadow: scrolled ? "var(--shadow-ace)" : "none",
-          width: scrolled ? "50%" : "100%",
-          y: scrolled ? 10 : 0,
+          width,
+          y,
         }}
         transition={{
           duration: 0.3,
