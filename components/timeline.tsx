@@ -86,6 +86,10 @@ const Timeline = () => {
       {data.map((achievement, idx) => (
         <div key={idx}>
           <motion.h2
+            initial={{
+              filter: "blur(10px)",
+              opacity: 0,
+            }}
             animate={{
               filter: isInView ? "blur(0px)" : "blur(10px)",
               opacity: isInView ? 1 : 0,
@@ -104,6 +108,10 @@ const Timeline = () => {
               <div key={idx} className="pl-4">
                 <Step idx={idx} isInView={isInView}>
                   <motion.h3
+                    initial={{
+                      opacity: 0,
+                      y: -10,
+                    }}
                     animate={{
                       opacity: isInView ? 1 : 0,
                       y: isInView ? 0 : -10,
@@ -120,6 +128,10 @@ const Timeline = () => {
                 </Step>
                 {item.description && (
                   <motion.p
+                    initial={{
+                      opacity: 0,
+                      y: -10,
+                    }}
                     animate={{
                       opacity: isInView ? 1 : 0,
                       y: isInView ? 0 : -10,
@@ -158,6 +170,10 @@ const Step = ({
 }) => {
   return (
     <motion.div
+      initial={{
+        opacity: 0,
+        y: -10,
+      }}
       animate={{
         opacity: isInView ? 1 : 0,
         y: isInView ? 0 : -10,

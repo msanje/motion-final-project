@@ -67,7 +67,7 @@ const TestimonialCard = ({
   avatar: string;
 }) => {
   return (
-    <div className="shadow-ace mx-4 flex h-50 w-full max-w-60 flex-col justify-between gap-4 rounded-xl p-4">
+    <div className="shadow-ace mx-4 flex h-50 w-full max-w-60 flex-col justify-between gap-4 rounded-xl p-4 transition duration-300 hover:shadow-md">
       <p className="text-sm text-neutral-700">{quote}</p>
       <div className="flex items-center gap-4 text-sm">
         <Image

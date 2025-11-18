@@ -24,7 +24,7 @@ export default async function BlogsPage() {
           at Google.
         </Subheading>
 
-        <div className="flex flex-col gap-4 py-10">
+        <div className="flex flex-col gap-8 py-10">
           {allBlogs.map((blog, idx) => (
             <Link
               className="cursor-pointer no-underline"
