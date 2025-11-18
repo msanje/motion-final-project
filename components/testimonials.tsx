@@ -1,4 +1,6 @@
+import Image from "next/image";
 import Marquee from "react-fast-marquee";
+import SectionHeading from "./section-heading";
 
 export const Testimonials = () => {
   const data = [
@@ -40,12 +42,17 @@ export const Testimonials = () => {
   ];
 
   return (
-    <div className="py-10">
-      <Marquee>
-        {data.map((item, idx) => (
-          <TestimonialCard key={idx} {...item}></TestimonialCard>
-        ))}
-      </Marquee>
+    <div className="cursor-pointer py-10">
+      <SectionHeading className="pb-4" delay={0.8}>
+        People love my work
+      </SectionHeading>
+      <div className="flex [mask-image:linear-gradient(to_right,transparent,white_10%,white_90%,transparent)]">
+        <Marquee speed={30} pauseOnHover className="py-4">
+          {data.map((item, idx) => (
+            <TestimonialCard key={idx} {...item}></TestimonialCard>
+          ))}
+        </Marquee>
+      </div>
     </div>
   );
 };
@@ -60,10 +67,18 @@ const TestimonialCard = ({
   avatar: string;
 }) => {
   return (
-    <div className="shadow-ace flex flex-col gap-4 p-4">
-      <div className="text-sm text-gray-500">{quote}</div>
-      {/* <p>{quote}</p>
-      <div className="flex items-center gap-4"></div> */}
+    <div className="shadow-ace mx-4 flex h-50 w-full max-w-60 flex-col justify-between gap-4 rounded-xl p-4">
+      <p className="text-sm text-neutral-700">{quote}</p>
+      <div className="flex items-center gap-4 text-sm">
+        <Image
+          src={avatar}
+          alt={name}
+          className="size-4 rounded-full object-cover"
+          width={400}
+          height={400}
+        />
+        <p className="text-sm text-neutral-500">{name}</p>
+      </div>
     </div>
   );
 };
