@@ -49,8 +49,8 @@ export default async function SingleBlogsPage({
     <div className="flex items-start justify-start">
       <Container className="min-h-[200vh] p-4 md:pt-20 md:pb-10">
         <Image
-          src={frontmatter.image}
-          alt={frontmatter.title}
+          src={frontmatter.image as string}
+          alt={frontmatter.title as string}
           className="mx-auto mb-20 max-h-96 w-full max-w-2xl rounded-2xl border border-neutral-200 object-cover shadow-xl"
           width={100}
           height={100}
