@@ -84,7 +84,7 @@ const Timeline = () => {
   return (
     <div ref={ref} className="py-10">
       {data.map((achievement, idx) => (
-        <div key={idx} className="mb-4">
+        <div key={idx}>
           <motion.h2
             animate={{
               filter: isInView ? "blur(0px)" : "blur(10px)",
@@ -95,7 +95,7 @@ const Timeline = () => {
               ease: "easeInOut",
               delay: 0.1 * idx,
             }}
-            className="font-bold text-black"
+            className="shadow-ace m-2 w-fit rounded-md px-2 py-0.5 font-bold text-black"
           >
             {achievement.year} {"-"} {achievement.title}
           </motion.h2>
