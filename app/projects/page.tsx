@@ -2,6 +2,7 @@ import Container from "@/components/Container";
 import Heading from "@/components/Heading";
 import Projects from "@/components/projects";
 import Subheading from "@/components/Subheading";
+import { projects } from "@/constants/projects";
 
 const ProjectsPage = () => {
   return (
@@ -13,7 +14,7 @@ const ProjectsPage = () => {
           efficient systems. I&apos;m currently working as a software engineer
           at Google.
         </Subheading>
-        <Projects />
+        <Projects projects={projects} />
       </Container>
     </div>
   );

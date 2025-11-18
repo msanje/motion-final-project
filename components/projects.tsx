@@ -3,52 +3,16 @@
 import Image from "next/image";
 import { motion } from "motion/react";
 import Link from "next/link";
+import { Project, projects as defaultProjects } from "@/constants/projects";
+import SectionHeading from "./section-heading";
 
-type Project = {
-  title: string;
-  src: string;
-  href: string;
-  description: string;
-};
-
-const Projects = () => {
-  const projects: Project[] = [
-    {
-      title: "Project Atlas",
-      src: "https://images.unsplash.com/photo-1717996563514-e3519f9ef9f7?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1470",
-      href: "#",
-      description:
-        "A mockup of a portfolio website template that showcases your skills, minimal and smooth micro interactions, perfect for developers and designers.",
-    },
-    {
-      title: "Neon Dashboard",
-      src: "https://plus.unsplash.com/premium_photo-1683836722608-60ab4d1b58e5?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1412",
-      href: "#",
-      description:
-        "A mockup of a portfolio website template that showcases your skills, minimal and smooth micro interactions, perfect for developers and designers.",
-    },
-    {
-      title: "Echo Notes",
-      src: "https://images.unsplash.com/photo-1628296499994-70face79ab36?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1373",
-      href: "#",
-      description:
-        "A mockup of a portfolio website template that showcases your skills, minimal and smooth micro interactions, perfect for developers and designers.",
-    },
-    {
-      title: "Pulse Tracker",
-      src: "https://images.unsplash.com/photo-1759646848980-22662fcabafb?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1460",
-      href: "#",
-      description:
-        "A mockup of a portfolio website template that showcases your skills, minimal and smooth micro interactions, perfect for developers and designers.",
-    },
-  ];
-
+const Projects = ({ projects = defaultProjects }: { projects?: Project[] }) => {
   return (
     <div className="py-10">
-      <p className="text-secondary max-w-lg pt-4 text-sm md:text-sm">
+      <SectionHeading delay={0.2}>
         I love building web apps and products that can impact millions of life
-      </p>
-      <div className="grid grid-cols-1 gap-4 py-4 md:grid-cols-2">
+      </SectionHeading>
+      <div className="grid grid-cols-1 gap-4 py-4 md:grid-cols-3">
         {projects.map((project, idx) => (
           <motion.div
             key={idx}
