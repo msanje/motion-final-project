@@ -7,7 +7,7 @@ import Timeline from "@/components/timeline";
 const AboutPage = () => {
   return (
     <div className="flex items-start justify-start">
-      <Container className="min-h-[200vh] p-4 md:pt-20 md:pb-10">
+      <Container className="min-h-screen p-4 md:pt-20 md:pb-10">
         <Heading>About me</Heading>
         <Subheading>
           I&apos;m a software engineer with a passion for building scalable and

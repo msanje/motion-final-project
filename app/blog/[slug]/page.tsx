@@ -47,7 +47,7 @@ export default async function SingleBlogsPage({
 
   return (
     <div className="flex items-start justify-start">
-      <Container className="min-h-[200vh] p-4 md:pt-20 md:pb-10">
+      <Container className="min-h-screen p-4 md:pt-20 md:pb-10">
         <Image
           src={frontmatter.image as string}
           alt={frontmatter.title as string}

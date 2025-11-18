@@ -21,6 +21,7 @@ const Heading = ({
         duration: 0.3,
         ease: "easeInOut",
       }}
+      viewport={{ once: true }}
     >
       <Tag
         className={cn(

@@ -22,6 +22,7 @@ const Subheading = ({
         ease: "easeInOut",
         delay: 0.2,
       }}
+      viewport={{ once: true }}
     >
       <Tag
         className={cn(
