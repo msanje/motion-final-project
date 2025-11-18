@@ -2,6 +2,7 @@ import Container from "@/components/Container";
 import { redirect } from "next/navigation";
 import { getBlogFrontMatterBySlug, getSingleBlog } from "@/lib/server/blogs";
 import Image from "next/image";
+import Scales from "@/components/scales";
 
 export async function generateMetadata({
   params,
@@ -46,8 +47,9 @@ export default async function SingleBlogsPage({
   const { content, frontmatter } = blog;
 
   return (
-    <div className="flex items-start justify-start">
-      <Container className="min-h-screen p-4 md:pt-20 md:pb-10">
+    <div className="flex min-h-screen items-start justify-start">
+      <Container className="min-h-screen px-8 md:pt-20 md:pb-10">
+        <Scales />
         <Image
           src={frontmatter.image as string}
           alt={frontmatter.title as string}

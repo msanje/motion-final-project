@@ -8,8 +8,8 @@ const LandingBlogs = async () => {
   const allBlogs = await getBlogs();
 
   return (
-    <div>
-      <SectionHeading delay={0.4} className="pb-4">
+    <div className="px-4">
+      <SectionHeading delay={0.4} className="mb-4">
         I love writing things down.
       </SectionHeading>
       <div className="flex flex-col gap-8">

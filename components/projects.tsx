@@ -8,7 +8,7 @@ import SectionHeading from "./section-heading";
 
 const Projects = ({ projects = defaultProjects }: { projects?: Project[] }) => {
   return (
-    <div className="py-10">
+    <div className="shadow-section-inset my-4 border-y border-neutral-100 px-4">
       <SectionHeading delay={0.2}>
         I love building web apps and products that can impact millions of life
       </SectionHeading>

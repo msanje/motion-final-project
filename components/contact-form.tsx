@@ -47,64 +47,66 @@ const ContactForm = () => {
   return (
     <form
       onSubmit={handleSubmit}
-      className="mx-auto flex max-w-lg flex-col gap-5 py-10"
+      className="shadow-section-inset mx-auto my-6 border-y border-neutral-100 py-12"
     >
-      <div className="flex flex-col gap-2">
-        <label
-          htmlFor="name"
-          className="text-sm font-medium tracking-tight text-neutral-600"
-        >
-          Full name
-        </label>
-        <input
-          id="name"
-          name="name"
-          type="text"
-          onChange={handleChange}
-          placeholder="Tyler Durden"
-          className="shadow-ace focus:ring-primary rounded-md px-2 py-1 text-sm focus:ring-2 focus:outline-none"
-        />
-      </div>
+      <div className="mx-auto flex max-w-lg flex-col gap-5">
+        <div className="flex flex-col gap-2">
+          <label
+            htmlFor="name"
+            className="text-sm font-medium tracking-tight text-neutral-600"
+          >
+            Full name
+          </label>
+          <input
+            id="name"
+            name="name"
+            type="text"
+            onChange={handleChange}
+            placeholder="Tyler Durden"
+            className="shadow-ace focus:ring-primary rounded-md px-2 py-1 text-sm focus:ring-2 focus:outline-none"
+          />
+        </div>
 
-      <div className="flex flex-col gap-2">
-        <label
-          htmlFor="email"
-          className="text-sm font-medium tracking-tight text-neutral-600"
-        >
-          Email Address
-        </label>
-        <input
-          id="email"
-          name="email"
-          type="text"
-          onChange={handleChange}
-          placeholder="example@gmail.com"
-          className="shadow-ace focus:ring-primary rounded-md px-2 py-1 text-sm focus:ring-2 focus:outline-none"
-        />
-      </div>
+        <div className="flex flex-col gap-2">
+          <label
+            htmlFor="email"
+            className="text-sm font-medium tracking-tight text-neutral-600"
+          >
+            Email Address
+          </label>
+          <input
+            id="email"
+            name="email"
+            type="text"
+            onChange={handleChange}
+            placeholder="example@gmail.com"
+            className="shadow-ace focus:ring-primary rounded-md px-2 py-1 text-sm focus:ring-2 focus:outline-none"
+          />
+        </div>
 
-      <div className="flex flex-col gap-2">
-        <label
-          htmlFor="message"
-          className="text-sm font-medium tracking-tight text-neutral-600"
+        <div className="flex flex-col gap-2">
+          <label
+            htmlFor="message"
+            className="text-sm font-medium tracking-tight text-neutral-600"
+          >
+            Message
+          </label>
+          <textarea
+            id="message"
+            name="message"
+            rows={5}
+            onChange={handleChange}
+            placeholder="can i meet you."
+            className="shadow-ace focus:ring-primary resize-none rounded-md px-2 py-1 text-sm focus:ring-2 focus:outline-none"
+          />
+        </div>
+        <button
+          type="submit"
+          className="bg-primary cursor-pointer rounded-md px-4 py-2 text-white"
         >
-          Message
-        </label>
-        <textarea
-          id="message"
-          name="message"
-          rows={5}
-          onChange={handleChange}
-          placeholder="can i meet you."
-          className="shadow-ace focus:ring-primary resize-none rounded-md px-2 py-1 text-sm focus:ring-2 focus:outline-none"
-        />
+          Send Message
+        </button>
       </div>
-      <button
-        type="submit"
-        className="bg-primary cursor-pointer rounded-md px-4 py-2 text-white"
-      >
-        Send Message
-      </button>
     </form>
   );
 };

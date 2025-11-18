@@ -1,5 +1,6 @@
 import Container from "@/components/Container";
 import Heading from "@/components/Heading";
+import Scales from "@/components/scales";
 import Subheading from "@/components/Subheading";
 import { getBlogs } from "@/lib/server/blogs";
 import { truncate } from "@/lib/utils";
@@ -16,7 +17,8 @@ export default async function BlogsPage() {
 
   return (
     <div className="flex items-start justify-start">
-      <Container className="min-h-screen p-4 md:pt-20 md:pb-10">
+      <Container className="min-h-screen px-8 md:pt-20 md:pb-10">
+        <Scales />
         <Heading>All blogs</Heading>
         <Subheading>
           I&apos;m a software engineer with a passion for building scalable and
@@ -24,7 +26,7 @@ export default async function BlogsPage() {
           at Google.
         </Subheading>
 
-        <div className="flex flex-col gap-8 py-10">
+        <div className="flex flex-col gap-8 px-4 py-10">
           {allBlogs.map((blog, idx) => (
             <Link
               className="cursor-pointer no-underline"

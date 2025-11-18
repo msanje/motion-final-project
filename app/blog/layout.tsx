@@ -6,7 +6,7 @@ export default function BlogLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <Container className="prose min-h-screen p-4 md:pt-20 md:pb-10">
+    <Container className="prose min-h-screen p-4 md:pt-20 md:pb-12">
       {children}
     </Container>
   );
